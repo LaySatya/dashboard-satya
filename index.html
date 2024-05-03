@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dashboard</title>
+</head>
+<style>
+    .blur {
+        filter: blur(20px);
+        /* Adjust blur intensity as needed */
+    }
+</style>
+
+<body class="bg-slate-50">
+    <!-- Sidebar -->
+    <div id="sideBar" class="fixed w-64 bg-gray-900 h-full top-0 left-0 p-4 lg:block hidden z-10">
+        <a href="" class="flex items-center">
+            <img class="h-14 rounded-xl border shadow-slate-700"
+                src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                height="100" alt="">
+            <span class="uppercase text-white font-bold px-3">Logo</span>
+        </a>
+        <hr class="mt-3 bg-gray-50 opacity-15">
+        <ul class="mt-8">
+            <li class="mb-1 group active">
+                <a href=""
+                    class="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-950 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                    <i class="ri-home-2-line"></i>
+                    <span class="px-3 nav">Dashboard</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="mt-2">
+            <li id="menu1"
+                class="cursor-pointer mb-1 group active flex py-2 px-4 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-md hover:group-[.active]:bg-gray-800 hover:group-[.active]:text-white ">
+                <i class="ri-shopping-cart-line"></i>
+                <span class="px-3 nav">Order</span>
+                <i id="menu-down" class="ri-arrow-drop-right-line text-xl"></i>
+            </li>
+            <ul id="submenu1" class="hidden">
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item1</li>
+                </a>
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item2</li>
+                </a>
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item3</li>
+                </a>
+            </ul>
+        </ul>
+        <ul class="mt-2">
+            <li id="menu2"
+                class="cursor-pointer mb-1 group active flex py-2 px-4 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-md hover:group-[.active]:bg-gray-800 hover:group-[.active]:text-white ">
+                <i class="ri-shopping-basket-fill"></i>
+                <span class="px-3 nav">Products</span>
+                <i id="menu-down2" class="ri-arrow-drop-right-line text-xl"></i>
+            </li>
+            <ul id="submenu2" class="hidden">
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item1</li>
+                </a>
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item2</li>
+                </a>
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item3</li>
+                </a>
+            </ul>
+        </ul>
+        <ul class="mt-2">
+            <li id="menu3" class="cursor-pointer mb-1 group active flex py-2 px-4 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-md hover:group-[.active]:bg-gray-800 hover:group-[.active]:text-white ">
+                    <i class="ri-store-line"></i>
+                    <span class="px-3 nav">Category</span>
+                    <i id="menu-down3" class="ri-arrow-drop-right-line text-xl "></i>
+            </li>
+            <ul id="submenu3" class="hidden">
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item1</li>
+                </a>
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item2</li>
+                </a>
+                <a href="">
+                    <li class="px-12 p-1 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-sm">Item3</li>
+                </a>
+            </ul>
+        </ul>
+        <ul class="mt-2">
+            <li class="mb-1 group active">
+                <a href=""
+                    class="flex py-2 px-4 text-gray-300 hover:bg-gray-800 hover:text-gray-100 rounded-md hover:group-[.active]:bg-gray-800 hover:group-[.active]:text-white ">
+                    <i class="ri-settings-2-line"></i>
+                    <span class="px-3 nav">Setting</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Head bar -->
+    <div>
+
+        <div id="headBar" class="fixed lg:w-10/12 w-full lg:left-64 left-0 bg-white top-0 shadow-md flex justify-between">
+            <i id="bar" class="ri-menu-line m-3 text-xl cursor-pointer px-3 hover:text-gray-500 hover:scale-105"></i>
+            <input id="search" type="search" class="border rounded-md h-9 m-2 cursor-text md:w-96 w-64 p-3 hidden"
+                placeholder="Search...">
+            <!-- <i id="searchBtn" class="ri-search-line m-3 text-gray-700 hover:scale-110 py-1 right-60 bg-white "></i> -->
+            <div class="flex xl:mr-9 lg:mr-20 md:mr-32">
+                <i id="searchBtn"
+                    class="ri-search-line m-3 text-gray-700 hover:scale-110 hover:opacity-80 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded-md"></i>
+                <i id="notification"
+                    class="ri-notification-line m-3 text-gray-700 hover:scale-110 hover:opacity-80 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded-md"></i>
+                <!-- dropdown notification -->
+                <div id="dropdownNotification"
+                    class="bg-white w-80 md:right-28 right-20 absolute shadow-md mt-14 p-1 border rounded-md hidden z-auto">
+                    <ul class="flex p-3">
+                        <a href="">
+                            <li class="px-3 text-gray-600 opacity-75 hover:font-medium cursor-pointer">Notifications</li>
+                        </a>
+                        <a href="#message">
+                            <li class="px-3 text-gray-600 opacity-75 hover:font-medium cursor-pointer">Messages</li>
+                        </a>
+                    </ul>
+                    <hr>
+                    <div class="overflow-auto h-60">
+                        <ul class="mt-3 h-72">
+                            <li
+                                class="flex items-center hover:bg-gray-100 cursor-pointer h-14 hover:first-line:text-blue-700">
+                                <img class="h-10 rounded-md border cursor-pointer shadow-slate-700 m-3"
+                                    src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                                    alt="">
+                                <p class="text-[15px] group noti -mt-1 font-medium">
+                                    New order <br>
+                                    <span class="text-[13px] opacity-60">from a user</span>
+                                </p>
+                            </li>
+                            <li
+                                class="flex items-center hover:bg-gray-100 cursor-pointer h-14 hover:first-line:text-blue-700">
+                                <img class="h-10 rounded-md border cursor-pointer shadow-slate-700 m-3"
+                                    src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                                    alt="">
+                                <p class="text-[15px] group noti -mt-1 font-medium">
+                                    New order <br>
+                                    <span class="text-[13px] opacity-60">from a user</span>
+                                </p>
+                            </li>
+                            <li
+                                class="flex items-center hover:bg-gray-100 cursor-pointer h-14 hover:first-line:text-blue-700">
+                                <img class="h-10 rounded-md border cursor-pointer shadow-slate-700 m-3"
+                                    src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                                    alt="">
+                                <p class="text-[15px] group noti -mt-1 font-medium">
+                                    New order <br>
+                                    <span class="text-[13px] opacity-60">from a user</span>
+                                </p>
+                            </li>
+                            <li
+                                class="flex items-center hover:bg-gray-100 cursor-pointer h-14 hover:first-line:text-blue-700">
+                                <img class="h-10 rounded-md border cursor-pointer shadow-slate-700 m-3"
+                                    src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                                    alt="">
+                                <p class="text-[15px] group noti -mt-1 font-medium">
+                                    New order <br>
+                                    <span class="text-[13px] opacity-60">from a user</span>
+                                </p>
+                            </li>
+                            <li
+                                class="flex items-center hover:bg-gray-100 cursor-pointer h-14 hover:first-line:text-blue-700">
+                                <img class="h-10 rounded-md border cursor-pointer shadow-slate-700 m-3"
+                                    src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                                    alt="">
+                                <p class="text-[15px] group noti -mt-1 font-medium">
+                                    New order <br>
+                                    <span class="text-[13px] opacity-60">from a user</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div id="message">
+                    message
+                </div> -->
+                </div>
+                <img class="h-8 rounded-md border cursor-pointer shadow-slate-700 m-3 proClick"
+                    src="https://png.pngtree.com/png-clipart/20200721/original/pngtree-c-and-o-letter-logo-template-png-image_4862151.jpg"
+                    alt="">
+                <i class="ri-arrow-down-s-fill mt-4 translate-x-[-0.7rem] cursor-pointer proClick"></i>
+    
+                <!-- dropdown profile -->
+                <ul id="pro" class="w-40 bg-white rounded-md absolute shadow-md mt-14 p-1 border hidden">
+                    <li class="p-1 px-4 hover:bg-gray-50 hover:text-blue-400 cursor-pointer">
+                        <a href="">Profile</a>
+                    </li>
+                    <li class="p-1 px-4 hover:bg-gray-50 hover:text-blue-400 cursor-pointer">
+                        <a href="">Setting</a>
+                    </li>
+                    <li class="p-1 px-4 mb-2 hover:bg-gray-50 hover:text-blue-400 cursor-pointer">
+                        <a href="">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="w-full">
+            <div class="mx-auto w-4/12">
+                <h1 class="">Content goes here</h1>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var bar = document.getElementById('bar');
+    var sideBar = document.getElementById('sideBar');
+    var headBar = document.getElementById('headBar');
+    var nav = document.querySelectorAll('.nav');
+    var body = document.querySelector('body');
+    bar.addEventListener('click', () => {
+        if (sideBar.classList.contains('hidden')) {
+            sideBar.classList.remove('hidden');
+            bar.classList.add('md:ml-3', 'ml-64');
+        }
+        // else if(sideBar.classList.contains('w-64')){
+        //     nav.forEach(n => {
+        //         n.classList.add('hidden');
+        //     });
+        //     sideBar.classList.replace('w-64' , 'w-20');
+        //     headBar.classList.remove('md:w-10/12' , 'md:left-64');
+        //     bar.classList.replace('px-3' , 'px-24');
+        // }
+        // else if(!sideBar.classList.contains('w-64')){
+
+        // }
+        else {
+            sideBar.classList.add('hidden', 'absolute', 'z-10');
+            bar.classList.remove('ml-64');
+        }
+    })
+
+    var proClick = document.querySelectorAll('.proClick');
+    var pro = document.getElementById('pro');
+    proClick.forEach(p => {
+        p.addEventListener('click', () => {
+            if (pro.classList.contains('hidden')) {
+                pro.classList.remove('hidden');
+            }
+            else {
+                pro.classList.add('hidden');
+            }
+        })
+    });
+
+
+
+    var notification = document.getElementById('notification');
+    var dropdownNotification = document.getElementById('dropdownNotification');
+    notification.addEventListener('click', () => {
+        if (dropdownNotification.classList.contains('hidden')) {
+            dropdownNotification.classList.remove('hidden');
+        }
+        else {
+            dropdownNotification.classList.add('hidden');
+        }
+    });
+
+    var searchBtn = document.getElementById('searchBtn');
+    var search = document.getElementById('search');
+
+    searchBtn.addEventListener('click', () => {
+        if (search.classList.contains('hidden')) {
+            search.classList.remove('hidden');
+        }
+        else {
+            search.classList.add('hidden');
+        }
+    });
+
+
+    // Submenu toggle
+    var menu1 = document.getElementById('menu1');
+    var submenu1 = document.getElementById('submenu1');
+    var down = document.getElementById('menu-down');
+    menu1.addEventListener('click', () => {
+        if (submenu1.classList.contains('hidden')) {
+            submenu1.classList.remove('hidden');
+            down.classList.add('rotate-90');
+        }
+        else {
+            submenu1.classList.add('hidden');
+            down.classList.remove('rotate-90');
+        }
+    });
+    var menu2 = document.getElementById('menu2');
+    var submenu2 = document.getElementById('submenu2');
+    var down2 = document.getElementById('menu-down2');
+    menu2.addEventListener('click', () => {
+        if (submenu2.classList.contains('hidden')) {
+            submenu2.classList.remove('hidden');
+            down2.classList.add('rotate-90');
+        }
+        else {
+            submenu2.classList.add('hidden');
+            down2.classList.remove('rotate-90');
+        }
+    });
+    var menu3= document.getElementById('menu3');
+    var submenu3 = document.getElementById('submenu3');
+    var down3 = document.getElementById('menu-down3');
+    menu3.addEventListener('click', () => {
+        if (submenu3.classList.contains('hidden')) {
+            submenu3.classList.remove('hidden');
+            down3.classList.add('rotate-90');
+        }
+        else {
+            submenu3.classList.add('hidden');
+            down3.classList.remove('rotate-90');
+        }
+    });
+</script>
+
+</html>
